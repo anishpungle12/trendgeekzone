@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,22 +12,30 @@
 </head>
 <body>
 
-  <!-- ============================
-       HEADER — slim, nav = filters
-  ============================= -->
+  <!-- ============================================================
+       HEADER — Logo | Filters | Dark-mode toggle | Hamburger
+  ============================================================= -->
   <header class="site-header">
     <div class="header-inner">
 
-      <!-- Brand -->
+      <!-- ── LOGO IMAGE (user-provided) ─────────────── -->
       <a href="#" class="logo" aria-label="TrendGeekZone Home">
-        <span class="logo-mark">TG</span>
-        <div class="logo-text-wrap">
-          <span class="logo-name">TrendGeekZone</span>
-          <span class="logo-sub">Clothing · Figures · Accessories</span>
-        </div>
+        <img
+          src="logo.png"
+          alt="TrendGeekZone"
+          class="logo-img"
+          onerror="this.style.display='none';document.querySelector('.logo-fallback').style.display='flex';"
+        />
+        <!-- Fallback shown only if logo.png is missing -->
+        
+          <div class="logo-text-wrap">
+            <span class="logo-name">TrendGeekZone</span>
+            <span class="logo-sub">Clothing · Figures · Accessories</span>
+          </div>
+        
       </a>
 
-      <!-- Desktop category filters live IN the header -->
+      <!-- ── DESKTOP CATEGORY FILTERS ─────────────── -->
       <nav class="header-filters" aria-label="Product categories">
         <button class="filter-btn active" data-category="all">All</button>
         <button class="filter-btn" data-category="clothing">👕 Clothing</button>
@@ -35,24 +43,59 @@
         <button class="filter-btn" data-category="accessories">💍 Accessories</button>
       </nav>
 
-      <!-- Store badges -->
-      <div class="header-stores">
-        <span class="store-dot amazon">AMZ</span>
-        <span class="store-dot flipkart">FK</span>
-      </div>
+      <!-- ── RIGHT CLUSTER ─────────────────────────── -->
+      <div class="header-right">
 
-      <!-- Mobile hamburger -->
-      <button class="ham-btn" id="hamBtn" aria-label="Open filters" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="6"  x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-        <span>Filter</span>
-      </button>
+        <!-- ☀️🌙 DARK MODE TOGGLE
+             Design: pill-shaped track, knob slides left (sun) ↔ right (moon)
+             Inspired by the Sun/Moon toggle reference image -->
+        <label class="theme-toggle-wrap" title="Toggle dark / light mode" aria-label="Dark mode toggle">
+          <span class="tgl-label sun-label" aria-hidden="true">☀️</span>
+
+          <div class="theme-track" id="themeTrack">
+            <!-- Sky scenery inside the track -->
+            <span class="track-cloud" aria-hidden="true"></span>
+            <span class="track-star ts1" aria-hidden="true">✦</span>
+            <span class="track-star ts2" aria-hidden="true">✦</span>
+            <span class="track-star ts3" aria-hidden="true">·</span>
+
+            <!-- Sliding knob -->
+            <span class="track-knob" id="themeKnob">
+              <span class="knob-face sun-face" aria-hidden="true">☀️</span>
+              <span class="knob-face moon-face" aria-hidden="true">🌙</span>
+            </span>
+          </div>
+
+          <!-- Hidden checkbox — accessibility + state -->
+          <input
+            type="checkbox"
+            id="themeCheckbox"
+            class="theme-checkbox"
+            aria-label="Enable dark mode"
+          />
+
+          <span class="tgl-label moon-label" aria-hidden="true">🌙</span>
+        </label>
+
+        <!-- Store pills -->
+        <div class="header-stores">
+          <span class="store-dot amazon">AMZ</span>
+          <span class="store-dot flipkart">FK</span>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <button class="ham-btn" id="hamBtn" aria-label="Open filters" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <span>Filter</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Mobile filter tray (slides down) -->
+    <!-- Mobile filter tray -->
     <div class="mobile-tray" id="mobileTray">
       <button class="filter-btn active" data-category="all">All Products</button>
       <button class="filter-btn" data-category="clothing">👕 Clothing</button>
@@ -61,24 +104,19 @@
     </div>
   </header>
 
-  <!-- ============================
+  <!-- ============================================================
        ABOVE-FOLD STRIP
-       — site name + count, nothing else
-  ============================= -->
+  ============================================================= -->
   <div class="above-fold">
     <div class="above-fold-inner">
-      <div class="af-left">
-        <h1 class="af-title">
-          Trending Picks <em>for You 🔥</em>
-        </h1>
-      </div>
-      <p class="results-count" id="resultsCount">10 products</p>
+      <h1 class="af-title">Trending Picks <em>for You 🔥</em></h1>
+      <p class="results-count" id="resultsCount">12 products</p>
     </div>
   </div>
 
-  <!-- ============================
+  <!-- ============================================================
        MAIN PRODUCT GRID
-  ============================= -->
+  ============================================================= -->
   <main class="products-main" id="products">
     <div class="products-grid" id="productsGrid">
       <!-- Cards injected by script.js -->
@@ -89,13 +127,14 @@
     </div>
   </main>
 
-  <!-- ============================
+  <!-- ============================================================
        FOOTER
-  ============================= -->
+  ============================================================= -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="f-brand">
-        <span class="logo-mark sm">TG</span>
+        <img src="logo.png" alt="TrendGeekZone" class="footer-logo-img"
+          onerror="this.style.display='none';" />
         <div>
           <p class="f-name">TrendGeekZone</p>
           <p class="f-desc">Curated affiliate picks. We earn a small commission when you buy through our links — at no extra cost to you.</p>
