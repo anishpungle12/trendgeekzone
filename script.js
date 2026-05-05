@@ -28,7 +28,7 @@ const PRODUCTS = [
     rating: 4.4, reviewCount: 8200,
     description: 'Drop-shoulder fit, 100% cotton. Bold front print. Available in S–XXL.',
     image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500&q=80',
-    amazonUrl:   'https://amazon.in/s?k=oversized+graphic+tee',
+    amazonUrl:   'https://amzn.to/4f87GNI',
     flipkartUrl: 'https://www.flipkart.com/search?q=oversized+graphic+tee',
     badge: 'deal',
   },
