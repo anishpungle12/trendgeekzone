@@ -9,7 +9,7 @@
  *
  * To add your affiliate links:
  *   Replace `amazonUrl` and `flipkartUrl` in each product object.
- * =============================================
+ * ==============================================
  */
 
 /* ════════════════════════════════════════════
