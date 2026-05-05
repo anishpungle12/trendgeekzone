@@ -22,12 +22,12 @@ const PRODUCTS = [
   /* ── CLOTHING ─────────────────────────── */
   {
     id: 'C001',
-    name: 'Oversized Graphic Streetwear Tee',
+    name: 'Linen Summer Shirt',
     category: 'clothing',
-    price: 799, originalPrice: 1499, discount: '47%',
-    rating: 4.4, reviewCount: 8200,
-    description: 'Drop-shoulder fit, 100% cotton. Bold front print. Available in S–XXL.',
-    image: 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=500&q=80',
+    price: 495, originalPrice: 1999, discount: '75%',
+    rating: 4.1, reviewCount: 1502,
+    description: 'This mens button down shirt is made of premium textured fabric, which is breathable, lightweight,soft, skin-friendly,keeping you cool and comfortable in the summer.',
+    image: 'images/deelmo.jpg',
     amazonUrl:   'https://amzn.to/4f87GNI',
     flipkartUrl: 'https://www.flipkart.com/search?q=oversized+graphic+tee',
     badge: 'deal',
